@@ -139,7 +139,7 @@ def admin_logout():
     flash("Logged out successfully.")
     return redirect(url_for("admin_login"))
 
-from openai import RateLimitError
+from openai.error import RateLimitError
 
 def get_portfolio_response(message):
 
