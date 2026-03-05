@@ -4,7 +4,8 @@ from config import DevelopmentConfig
 from flask import jsonify
 import datetime
 from dotenv import load_dotenv
-import os
+import eventlet
+eventlet.monkey_patch()
 
 import os
 
