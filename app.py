@@ -139,8 +139,6 @@ def admin_logout():
     flash("Logged out successfully.")
     return redirect(url_for("admin_login"))
 
-from openai.error import RateLimitError
-
 def get_portfolio_response(message):
 
     if "experience" in message:
@@ -204,6 +202,8 @@ def home():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
 
 
