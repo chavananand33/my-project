@@ -6,3 +6,4 @@ psycopg2-binary
 Flask-Login
 python-dotenv
 gunicorn
+openai
