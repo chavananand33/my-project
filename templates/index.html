@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anand Chavan — Technical Operations & IT Support Professional</title>
+
+  <meta name="description" content="Anand Chavan — 7.6+ years expertise in Telecom IT Infrastructure, SAP CRM, Production Support, and AI-driven Automation. Based in Pune, India." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anand Chavan — Technical Operations & IT Support" />
+  <meta property="og:description" content="7.6+ years in Telecom IT Infrastructure, SAP CRM systems, and mission-critical Production Support." />
+  <meta property="og:url" content="https://anandchavan.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://anandchavan.com/images/profile.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+
+ <!-- Cursor -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div id="flashMessage" class="flash-success">
+      {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+ <!-- Cursor -->
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <!--<a href="#home">Home</a>-->
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"      class="nav-link">About</a></li>
+      <li><a href="#skills"     class="nav-link">Skills</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#education"  class="nav-link">Education</a></li>
+      <li><a href="#contact"    class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Hello, I'm - </p>
+      <h1 class="hero-name reveal">Anand<br />Chavan</h1>
+      <p class="hero-role reveal">
+        <span id="typedRole">
+  <strong>Technical Operations Professional → AI Driven Automation</strong> |<br />
+  <strong>Telecom IT</strong> |<strong> SAP CRM</strong> |<strong> Python & ML Upskilling </strong>
+        </span>
+        <span class="cursor-blink">|</span>
+      </p>
+      <!--<p class="hero-tagline reveal">7.6+ Years in Telecom IT &amp; Enterprise Application Support</p> -->
+      <div class="hero-cta reveal">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-primary" download="CV_Anand_Chavan.pdf">Download Resume</a>
+      </div>
+    </div>
+     
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+     
+    <div class="hero-decor">
+      <div class="decor-circle c1"></div>
+      <div class="decor-circle c2"></div>
+    </div>
+   
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+
+        <div class="about-image reveal">
+          <div class="about-image-frame">
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Anand Chavan — Technical Operations Professional" />
+            <div class="image-accent"></div>
+          </div>
+        
+
+    <div class="about-stats">
+  <div class="stat-item">
+    <h3>{{ years_exp }}</h3>
+    <p>YEARS EXP.</p>
+  </div>
+
+  <div class="stat-item">
+    <h3>{{ companies }}</h3>
+    <p>COMPANIES</p>
+  </div>
+
+  <div class="stat-item">
+    <h3>{{ sla }}</h3>
+    <p>% SLA RATE</p>
+  </div>
+</div>
+</div>
+        <div class="about-content reveal">
+          <p class="about-intro">
+            Experienced <strong>Technical Operations &amp; Application Support</strong> professional based in <strong>Pune, Maharashtra, India</strong>.
+          </p>
+          <p class="about-text">
+            With over 7.6+ years of expertise in Telecom IT Infrastructure, SAP CRM systems, and mission-critical Production Support environments, I have a proven track record in Incident &amp; Problem Management, SLA governance, system migrations, and enterprise application stability.
+          </p>
+          <p class="about-text">
+            I bring hands-on expertise in SQL, Oracle databases, and Unix/Linux environments. I am currently upskilling in Python, Machine Learning, Generative AI, and Intelligent Automation to transition into AI-driven Operations and Automation-focused roles.
+          </p>
+          <p class="about-text">
+            I have successfully supported high-volume telecom platforms serving millions of subscribers at IBM India and JIO Platforms, driving system consolidations, minimising downtime, and delivering structured root cause analyses that reduced incident resolution time by 25%.
+          </p>
+          <div class="about-links">
+            <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-primary" download="CV_Anand_Chavan.pdf">Download CV</a>
+            <div class="social-links">
+              <a href="https://linkedin.com/in/anand-chavan-7615b9118" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="/cdn-cgi/l/email-chavananand33@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <a href="tel:+919730343050" aria-label="Phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SKILLS ══════════════ -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">Core Competencies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal" data-delay="0">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3>Application &amp; Production Support</h3>
+          <p>L1/L2 support across Telecom IT infrastructure and SAP CRM platforms with 99.9% uptime maintenance.</p>
+          <div class="skill-tags">
+            <span>L1/L2 Support</span><span>SLA Governance</span><span>Incident Mgmt</span>
+          </div>
+        </div>
+        <div class="skill-card reveal" data-delay="100">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+          </div>
+          <h3>Database &amp; Systems</h3>
+          <p>Proficient in Oracle 11g/19c and SQL with hands-on Unix/Linux server operations and monitoring.</p>
+          <div class="skill-tags">
+            <span>Oracle 11g/19c</span><span>SQL</span><span>Unix/Linux</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-card reveal" data-delay="200">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Enterprise Tools</h3>
+          <p>Experienced across SAP CRM, BMC Remedy, HPSM, Citrix, WinSCP, Putty and SQL Developer.</p>
+          <div class="skill-tags">
+            <span>SAP CRM</span><span>BMC Remedy</span><span>HPSM</span><span>Putty</span>
+          </div>
+        </div>
+        <div class="skill-card reveal" data-delay="300">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
+          </div>
+          <h3>AI &amp; Automation (Upskilling)</h3>
+          <p>Actively pursuing Python for AI &amp; Automation, Machine Learning, Generative AI, and Prompt Engineering certifications.</p>
+          <div class="skill-tags">
+            <span>Python</span><span>Gen AI</span><span>ML</span><span>Prompt Eng.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Proficiency Bars -->
+      <div class="tech-stack reveal">
+        <h3>Technical Proficiency</h3>
+        <div class="progress-bars">
+          <div class="progress-item">
+            <div class="progress-label"><span>SQL / Oracle Database</span><span>90%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="90"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Unix / Linux</span><span>85%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>SAP CRM</span><span>85%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Incident &amp; Problem Management</span><span>95%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="95"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Python / AI (In Progress)</span><span>40%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-width="40"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs-grid reveal">
+        <h3 class="certs-title">Certifications &amp; Training</h3>
+        <div class="certs-list">
+          <div class="cert-item">
+            <div class="cert-badge">MS</div>
+            <div>
+              <span class="cert-name">MOS: PowerPoint Associate (MO-310)</span>
+              <span class="cert-org">Microsoft · AI for Techies · In Progress</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">MS</div>
+            <div>
+              <span class="cert-name">MOS: Excel Expert (MO-211)</span>
+              <span class="cert-org">Microsoft · AI for Techies · In Progress</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">PBI</div>
+            <div>
+              <span class="cert-name">Power BI Data Analyst Associate (PL-300)</span>
+              <span class="cert-org">Microsoft · AI for Techies · In Progress</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">AI</div>
+            <div>
+              <span class="cert-name">Python for AI &amp; Automation</span>
+              <span class="cert-org">AI for Techies · In Progress</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">AI</div>
+            <div>
+              <span class="cert-name">Generative AI &amp; Prompt Engineering</span>
+              <span class="cert-org">AI for Techies &amp; Be10x · In Progress</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">IT</div>
+            <div>
+              <span class="cert-name">IT Service Management (ITIL)</span>
+              <span class="cert-org">Officemaster</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ EXPERIENCE ══════════════ -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">Work History</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- IBM 2024 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Support Engineer</h3>
+                <p class="timeline-org">IBM India Pvt. Ltd. — Pune</p>
+              </div>
+              <span class="timeline-date">Aug 2024 – Nov 2024</span>
+            </div>
+            <div class="timeline-project">
+              <span class="project-badge">Project: DXL — Digital Experience Layer</span>
+              <span class="client-badge">Client: Vodafone Idea (VI)</span>
+            </div>
+            <p class="timeline-desc">
+              DXL is a backend middleware platform connecting customer-facing channels (VI App, Web Portal, Retail POS) with SOR applications via REST APIs. Handles recharge, payment, and product inquiry flows with MongoDB as the primary database.
+            </p>
+            <ul class="timeline-points">
+              <li>Provided L2 Production Support for CRM-based telecom activation workflows</li>
+              <li>Monitored system health and API performance across multiple backend services</li>
+              <li>Reduced incident resolution time by 25% via structured Root Cause Analysis</li>
+              <li>Collaborated with development and infrastructure teams for permanent fixes and deployment validation</li>
+              <li>Managed critical incidents within SLA timelines consistently</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>SQL Developer</span><span>Unix</span><span>BMC Remedy</span><span>Putty</span><span>REST APIs</span><span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JIO -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Deputy Manager</h3>
+                <p class="timeline-org">JIO Platforms Limited — RCP Mumbai</p>
+              </div>
+              <span class="timeline-date">May 2022 – Jul 2024</span>
+            </div>
+            <div class="timeline-project">
+              <span class="project-badge">Project: Enterprise SAP CRM</span>
+              <span class="client-badge">Client: JIO</span>
+            </div>
+            <p class="timeline-desc">
+              Enterprise CRM handling all JIO postpaid number activations — validating GST numbers, customer type, POA/POI, and address proof. Supports multiple CAF types: IOT, Mobility, Jio_Link, ODCPE, plus Termination &amp; Suspension workflows.
+            </p>
+            <ul class="timeline-points">
+              <li>Provided L2 Production Support for CRM-based telecom activation workflows</li>
+              <li>Monitored system queues and logs ensuring 99.9% uptime</li>
+              <li>Reduced incident resolution time by 25% via structured Root Cause Analysis</li>
+              <li>Executed Linux-based system backups and validations</li>
+              <li>Implemented configuration and security changes; ensured SLA adherence</li>
+              <li>Managed critical incidents within SLA timelines across all activation types</li>
+            </ul>
+            <div class="achievement-badge">
+              🏆 Key Achievement: Improved system stability and reduced recurring incidents through proactive monitoring practices.
+            </div>
+            <div class="timeline-tags">
+              <span>SAP CRM</span><span>SQL Developer</span><span>Unix</span><span>HPSM</span><span>RDP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IBM 2017 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Application Support Engineer</h3>
+                <p class="timeline-org">IBM India Pvt. Ltd. — Pune</p>
+              </div>
+              <span class="timeline-date">Mar 2017 – May 2022</span>
+            </div>
+            <div class="timeline-project">
+              <span class="project-badge">Projects: VI Second Consent Gateway &amp; OFFNET</span>
+              <span class="client-badge">Client: Vodafone Idea (VI)</span>
+            </div>
+            <p class="timeline-desc">
+              Managed two major platforms: <strong>Second Consent Gateway</strong> — a TRAI-compliant VAS activation platform processing VAS requests via Voice (IVR, OBD, IBD), USSD, SMS, Flash &amp; WAP; and <strong>OFFNET</strong> — a PAN India centralized system for PPU (Pay Per Usage) event-based charging APIs with refund and blacklisting support.
+            </p>
+            <ul class="timeline-points">
+              <li>Driven project for VAS and IT system consolidations for erstwhile Vodafone and erstwhile Idea (merger)</li>
+              <li>Involved in launching new brand VI with respect to VAS and Digital platforms of VIL system</li>
+              <li>Supported event-based charging APIs (PPU) and refund systems handling millions of transactions</li>
+              <li>Managed production escalations across IT, Marketing &amp; Business teams</li>
+              <li>Responsible for configuration of new services, short codes and verbiage changes for VIL vendors</li>
+              <li>Ensured SLA adherence and minimized downtime across both platforms</li>
+            </ul>
+            <div class="achievement-badge">
+              🏆 Key Achievement: Successfully supported high-volume telecom platforms serving millions of subscribers.
+            </div>
+            <div class="timeline-tags">
+              <span>SQL Developer</span><span>Unix</span><span>BMC Remedy</span><span>Putty</span><span>VAS Platforms</span><span>PPU Charging</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EDUCATION ══════════════ -->
+  <section class="education section" id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Education</span>
+        <h2 class="section-title">Academic Background</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          </div>
+          <div class="edu-content">
+            <span class="edu-degree">BE in Computer Engineering</span>
+            <span class="edu-uni">Pune University</span>
+            <span class="edu-grade">Distinction</span>
+          </div>
+        </div>
+        <div class="edu-card reveal" data-delay="100">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div class="edu-content">
+            <span class="edu-degree">Diploma in Engineering</span>
+            <span class="edu-uni">MSBTE</span>
+            <span class="edu-grade">Distinction</span>
+          </div>
+        </div>
+        <div class="edu-card reveal" data-delay="200">
+          <div class="edu-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div class="edu-content">
+            <span class="edu-degree">SSC — 10th Standard</span>
+            <span class="edu-uni">Maharashtra State Board</span>
+            <span class="edu-grade">Distinction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="contact-intro">
+            Open to new opportunities in Technical Operations, Application Support, and AI-driven Automation roles. Feel free to reach out — I'd love to connect.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <a href="/cdn-cgi/l/email-protection#4023282136212e212e212e24737300272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="6d0e050c1b0c030c030c03095e5e2d0a000c0401430e0200">[email&#160;protected]</span></a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">Phone</span>
+                <a href="tel:+919730343050">+91 97303 43050</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">Location</span>
+                <span>Pune, Maharashtra, India</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/anand-chavan-7615b9118" target="_blank" rel="noopener">linkedin.com/in/anand-chavan-7615b9118</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal">
+          <form class="contact-form" id="contactForm" action="/contact" method="POST">
+            <!-- Honeypot -->
+            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" />
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required placeholder="Job Opportunity / Collaboration" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Hi Anand, I'd like to discuss..."></textarea>
+            </div>
+            <div id="formMessage" class="form-message"></div>
+            <button type="submit" class="btn btn-primary btn-submit">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo"><span>anandchavan.com</span></p>
+        <p class="footer-copy">&copy; <span id="year"></span> Anand Chavan — Pune, Maharashtra, India</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/anand-chavan-7615b9118" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="/cdn-cgi/l/email-protection#1b78737a6d7a757a757a757f28285b7c767a727735787476">Email</a>
+          <a href="{{ url_for('static', filename='resume.pdf') }}" download="CV_Anand_Chavan.pdf">CV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const flash = document.getElementById("flashMessage");
+
+  if (flash) {
+    setTimeout(() => {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = "0";
+
+      setTimeout(() => {
+        flash.remove();
+      }, 500);
+    }, 5000);
+  }
+});
+</script>
+
+<!-- ===========================
+     AI CHATBOT
+=========================== -->
+
+
+<div class="visitor-box">
+  WEBSITE VISITORS : <span id="counter">{{ visits }}</span>
+</div>
+
+<div id="chat-container">
+  <div id="chat-header">🤖 Ask About My Skills</div>
+
+  <div id="chat-box">
+    <div class="chat-message">
+      <strong>Bot:</strong> Hi 👋 I'm Anand's AI assistant. Ask me about Experience, Skills, Projects, Education, Contact or Resume.
+    </div>
+  </div>
+
+  <form id="chat-form">
+    <input type="text" id="chat-input" placeholder="Type your question..." required>
+    <button type="submit">➤</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

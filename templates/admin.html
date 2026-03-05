@@ -1,0 +1,11 @@
+<h2>Contact Messages</h2>
+{% for msg in contacts %}
+<p><b>{{ msg.name }}</b> - {{ msg.email }} - {{ msg.subject }}</p>
+<p>{{ msg.message }}</p>
+<hr>
+{% endfor %}
+
+<h2>Chat Logs</h2>
+{% for chat in chats %}
+<p><b>{{ chat.username }}</b>: {{ chat.content }}</p>
+{% endfor %}
