@@ -6,12 +6,22 @@ import datetime
 from dotenv import load_dotenv
 
 import os
-import psycopg2
+import os
 
-DATABASE_URL = os.environ.get("postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50")
+class Config:
+    SECRET_KEY = os.getenv("555de27cd2aa0f1c5c3f8322c89172667d7cadef487391f986ef90da7287599c", "dev-secret")
 
-conn = psycopg2.connect(postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50)
-cursor = conn.cursor()
+    db_url = os.getenv("postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50")
+
+    if db_url and db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = db_url or "sqlite:///local.db"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class DevelopmentConfig(Config):
+    DEBUG = True
 
 PORT = int(os.environ.get("PORT", 5000))
 
