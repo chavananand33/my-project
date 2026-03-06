@@ -201,18 +201,18 @@ def chat():
 
 @app.route("/")
 def home():
+
     counter = db.session.get(Counter, 1)
 
     if not counter:
         counter = Counter(id=1, visits=0)
         db.session.add(counter)
+        db.session.commit()
 
     counter.visits += 1
     db.session.commit()
 
-    return render_template(
-        "index.html",
-        visits=counter.visits,
+    return render_template("index.html", visits=counter.visits,
         years_exp="7.6+",
         companies="3+",
         sla="99.99%"
