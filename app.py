@@ -6,6 +6,12 @@ import datetime
 from dotenv import load_dotenv
 
 import os
+import psycopg2
+
+DATABASE_URL = os.environ.get("postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50")
+
+conn = psycopg2.connect(postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50)
+cursor = conn.cursor()
 
 PORT = int(os.environ.get("PORT", 5000))
 
