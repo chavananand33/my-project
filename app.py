@@ -64,6 +64,10 @@ class ChatMessage(db.Model):
     bot_reply = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
+
+with app.app_context():
+    db.create_all()
+
 # ===========================
 # ROUTES
 # ===========================
