@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os
 
 class Config:
-    SECRET_KEY = os.getenv("555de27cd2aa0f1c5c3f8322c89172667d7cadef487391f986ef90da7287599c", "dev-secret")
+    SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 
     db_url = os.getenv("postgresql://anand:e8RXIdlv28Mmyww3pqr6G7ssRBOLeQoY@dpg-d6l8tphaae7s7382f4o0-a/portfolio_ai_uo50")
 
@@ -31,6 +31,7 @@ app.config.from_object(DevelopmentConfig)
 
 print("SECRET KEY:", app.config.get("SECRET_KEY"))
 
+app.config.from_object("config.Config")
 
 db = SQLAlchemy(app)
 
@@ -202,21 +203,6 @@ def chat():
 
     return jsonify({"reply": reply})
 
-
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-app.config.from_object("config.Config")
-
-db = SQLAlchemy(app)
-
-class Counter(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    visits = db.Column(db.Integer, default=0)
-
-with app.app_context():
-    db.create_all()
 
 @app.route("/")
 def home():
