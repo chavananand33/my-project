@@ -199,6 +199,22 @@ def chat():
 
     return jsonify({"reply": reply})
 
+
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config.from_object("config.Config")
+
+db = SQLAlchemy(app)
+
+class Counter(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    visits = db.Column(db.Integer, default=0)
+
+with app.app_context():
+    db.create_all()
+
 @app.route("/")
 def home():
 
@@ -217,23 +233,6 @@ def home():
         companies="3+",
         sla="99.99%"
     )
-
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+    app.run(debug=True)
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-app.config.from_object("config.Config")
-
-db = SQLAlchemy(app)
-
-class Counter(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    visits = db.Column(db.Integer, default=0)
-
-
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
