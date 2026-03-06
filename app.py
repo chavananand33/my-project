@@ -6,7 +6,6 @@ import datetime
 from dotenv import load_dotenv
 
 import os
-import os
 
 class Config:
     SECRET_KEY = os.getenv("555de27cd2aa0f1c5c3f8322c89172667d7cadef487391f986ef90da7287599c", "dev-secret")
@@ -39,7 +38,7 @@ db = SQLAlchemy(app)
 # DATABASE MODELS
 # ===========================
 
-from werkzeug.security import generate_password_hash, check_password_hash
+# from werkzeug.security import generate_password_hash, check_password_hash
 
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
