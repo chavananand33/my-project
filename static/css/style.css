@@ -1182,3 +1182,24 @@ body:hover .cursor-follower { opacity: 1; }
   color:#00d4ff;
 }
 
+/* Mobile Chatbot Fix */
+@media (max-width:768px){
+
+.chatbot-container{
+right:10px;
+left:10px;
+bottom:20px;
+}
+
+.chatbot-window{
+position:fixed;
+bottom:0;
+right:0;
+left:0;
+width:100%;
+height:80vh;
+border-radius:15px 15px 0 0;
+}
+
+}
+
