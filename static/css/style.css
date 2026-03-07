@@ -219,7 +219,7 @@ body:hover .cursor-follower { opacity: 1; }
 .visitor-box {
   position: fixed;
   bottom: 30px;
-  right: 190px;   /* Positioned left of Back-to-Top */
+  right: 170px;   /* Positioned left of Back-to-Top */
 
   background: rgba(0, 0, 0, 0.85);
   color: #d4af37;
@@ -1078,8 +1078,8 @@ body:hover .cursor-follower { opacity: 1; }
 
 #chat-toggle{
 position:fixed;
-bottom:90px;
-right:30px;
+bottom:30px;
+right:90px;
 background:#00adb5;
 color:white;
 width:55px;
