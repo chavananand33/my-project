@@ -135,3 +135,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// =============================
+// CHAT TOGGLE BUTTON
+// =============================
+document.addEventListener("DOMContentLoaded", function () {
+
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatContainer = document.getElementById("chat-container");
+
+  if (!chatToggle || !chatContainer) return;
+
+  chatToggle.addEventListener("click", function () {
+
+    if (chatContainer.style.display === "block") {
+      chatContainer.style.display = "none";
+    } else {
+      chatContainer.style.display = "block";
+    }
+
+  });
+
+});

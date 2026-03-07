@@ -1076,26 +1076,22 @@ body:hover .cursor-follower { opacity: 1; }
    CHATBOT STYLES
 =========================== */
 
-#chat-toggle {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #111;
-  color: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  font-size: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  z-index: 9999;
-}
-
-#chat-toggle:hover {
-  transform: scale(1.1);
+#chat-toggle{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#00adb5;
+color:white;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* ===========================
@@ -1105,7 +1101,7 @@ body:hover .cursor-follower { opacity: 1; }
 #chat-container{
 position:fixed;
 right:20px;
-bottom:120px;
+bottom:110px;
 width:320px;
 max-width:90vw;
 background:#111;
@@ -1113,6 +1109,7 @@ color:white;
 padding:15px;
 z-index:999999;
 border-radius:10px;
+display:none; 
 }
 
 #chat-box{
@@ -1144,11 +1141,11 @@ padding:8px 12px;
 right:5px;
 left:5px;
 width:auto;
-bottom:110px;
+bottom:100px;
 }
 
 #chat-box{
-height:320px;
+height:300px;
 }
 
 }
