@@ -44,8 +44,6 @@ function initReveal() {
 
       if (elementTop < windowHeight - 100) {
         el.classList.add("active");
-      } else {
-        el.classList.remove("active");
       }
     });
   }
@@ -61,11 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // =============================
 // CHATBOT
 // =============================
-const chatForm = document.getElementById("chat-form");
-const chatInput = document.getElementById("chat-input");
-const chatBox = document.getElementById("chat-box");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (chatForm) {
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatBox = document.getElementById("chat-box");
+
+  if (!chatForm || !chatInput || !chatBox) return;
+
   chatForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -85,43 +86,58 @@ if (chatForm) {
       });
 
       const data = await response.json();
+
       const typing = document.createElement("div");
-typing.classList.add("typing");
-typing.innerHTML = "<span></span><span></span><span></span>";
-chatBox.appendChild(typing);
+      typing.innerHTML = "AI is typing...";
+      chatBox.appendChild(typing);
 
-chatBox.scrollTop = chatBox.scrollHeight;
+      chatBox.scrollTop = chatBox.scrollHeight;
 
-setTimeout(()=>{
-typing.remove();
-appendMessage("AI", data.reply);
-},800);
+      setTimeout(() => {
+        typing.remove();
+        appendMessage("AI", data.reply);
+      }, 800);
+
     } catch (error) {
       appendMessage("AI", "Server error occurred.");
     }
   });
-}
 
+  // ENTER KEY SEND
+  chatInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      chatForm.dispatchEvent(new Event("submit"));
+    }
+  });
+
+});
+
+// =============================
+// PROGRESS BAR
+// =============================
 document.addEventListener("DOMContentLoaded", function () {
+
   const progressBars = document.querySelectorAll(".progress-fill");
 
   progressBars.forEach((bar) => {
     const width = bar.getAttribute("data-width");
 
     setTimeout(() => {
-      bar.style.transition = "width 1.5s ease-in-out";
       bar.style.width = width + "%";
     }, 300);
   });
+
 });
 
 // =============================
 // BACK TO TOP BUTTON
 // =============================
 document.addEventListener("DOMContentLoaded", function () {
-  const backToTop = document.getElementById("backToTop");
 
+  const backToTop = document.getElementById("backToTop");
   if (!backToTop) return;
+
   window.addEventListener("scroll", function () {
 
     if (window.scrollY > 400) {
@@ -129,18 +145,22 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       backToTop.classList.remove("show");
     }
+
   });
 
   backToTop.addEventListener("click", function () {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
   });
+
 });
 
 // =============================
-// CHAT TOGGLE BUTTON
+// CHAT TOGGLE
 // =============================
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -149,20 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!chatToggle || !chatContainer) return;
 
-chatToggle.addEventListener("click", function () {
-  chatContainer.classList.toggle("show");
-});
+  chatToggle.addEventListener("click", function () {
+    chatContainer.classList.toggle("show");
   });
 
 });
-
-
-chatInput.addEventListener("keypress", function(e){
-
-if(e.key === "Enter"){
-e.preventDefault();
-chatForm.dispatchEvent(new Event("submit"));
-}
-
-});
-}

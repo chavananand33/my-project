@@ -1078,8 +1078,8 @@ body:hover .cursor-follower { opacity: 1; }
 
 #chat-toggle{
 position:fixed;
-bottom:25px;
-right:90px;
+bottom:90px;
+right:30px;
 background:#00adb5;
 color:white;
 width:55px;
@@ -1109,7 +1109,9 @@ color:white;
 padding:15px;
 z-index:999999;
 border-radius:10px;
-display:none; 
+
+display:block;
+visibility:hidden;
 
 transform:translateY(120%);
 opacity:0;
@@ -1119,6 +1121,7 @@ transition:all 0.3s ease;
 #chat-container.show{
 transform:translateY(0);
 opacity:1;
+visibility:visible;
 }	
 
 #chat-box{
