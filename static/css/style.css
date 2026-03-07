@@ -1078,7 +1078,7 @@ body:hover .cursor-follower { opacity: 1; }
 
 #chat-toggle{
 position:fixed;
-bottom:30px;
+bottom:27px;
 right:90px;
 background:#00adb5;
 color:white;

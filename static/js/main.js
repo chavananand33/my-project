@@ -57,6 +57,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // =============================
+// APPEND MESSAGE FUNCTION
+// =============================
+function appendMessage(sender, message) {
+
+  const chatBox = document.getElementById("chat-box");
+
+  if (!chatBox) return;
+
+  const msg = document.createElement("div");
+
+  if (sender === "You") {
+    msg.classList.add("chat-message", "user");
+    msg.innerHTML = "<strong>You:</strong> " + message;
+  } else {
+    msg.classList.add("chat-message", "bot");
+    msg.innerHTML = "<strong>AI:</strong> " + message;
+  }
+
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// =============================
 // CHATBOT
 // =============================
 document.addEventListener("DOMContentLoaded", function () {
@@ -107,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   chatInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
-      chatForm.dispatchEvent(new Event("submit"));
+      chatForm.requestSubmit();
     }
   });
 
