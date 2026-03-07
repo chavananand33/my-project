@@ -6,10 +6,10 @@ window.addEventListener("load", function () {
 
   if (preloader) {
     preloader.style.opacity = "0";
-    preloader.style.pointerEvents = "Welcome";
+    preloader.style.pointerEvents = "none";
 
     setTimeout(() => {
-      preloader.style.display = "Welcome !";
+      preloader.style.display = "none";
     }, 500);
   }
 });
@@ -85,18 +85,21 @@ if (chatForm) {
       });
 
       const data = await response.json();
-      appendMessage("AI", data.reply);
+      const typing = document.createElement("div");
+typing.classList.add("typing");
+typing.innerHTML = "<span></span><span></span><span></span>";
+chatBox.appendChild(typing);
+
+chatBox.scrollTop = chatBox.scrollHeight;
+
+setTimeout(()=>{
+typing.remove();
+appendMessage("AI", data.reply);
+},800);
     } catch (error) {
       appendMessage("AI", "Server error occurred.");
     }
   });
-}
-
-function appendMessage(sender, text) {
-  const msg = document.createElement("div");
-  msg.innerHTML = "<strong>" + sender + ":</strong> " + text;
-  chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -119,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const backToTop = document.getElementById("backToTop");
 
   if (!backToTop) return;
-
   window.addEventListener("scroll", function () {
+
     if (window.scrollY > 400) {
       backToTop.classList.add("show");
     } else {
@@ -146,14 +149,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!chatToggle || !chatContainer) return;
 
-  chatToggle.addEventListener("click", function () {
-
-    if (chatContainer.style.display === "block") {
-      chatContainer.style.display = "none";
-    } else {
-      chatContainer.style.display = "block";
-    }
-
+chatToggle.addEventListener("click", function () {
+  chatContainer.classList.toggle("show");
+});
   });
 
 });
+
+
+chatInput.addEventListener("keypress", function(e){
+
+if(e.key === "Enter"){
+e.preventDefault();
+chatForm.dispatchEvent(new Event("submit"));
+}
+
+});
+}
