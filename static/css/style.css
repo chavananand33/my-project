@@ -1196,6 +1196,7 @@ display:none;
 flex-direction:column;
 overflow:hidden;
 }
+
 /* MOBILE CHATBOT FIX */
 
 @media (max-width:768px){
