@@ -199,12 +199,10 @@ body:hover .cursor-follower { opacity: 1; }
   font-style: italic;
   color: var(--accent);
 }
-.hero-role {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  height: 2rem;
-  font-weight: 300;
+.hero-role{
+margin-top:20px;
+line-height:1.6;
+opacity:0.85;
 }
 .hero-status::before{
 content:"";
@@ -215,17 +213,25 @@ background:#9be37a;
 border-radius:50%;
 margin-right:6px;
 box-shadow:0 0 8px #9be37a;
-}
-.hero-status{
-display:inline-block;
-margin-bottom:18px;
-padding:6px 12px;
+}.hero-status{
+margin-bottom:20px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:6px 14px;
+border-radius:20px;
+background:rgba(120,255,120,0.08);
+border:1px solid rgba(120,255,120,0.35);
 font-size:13px;
 color:#9be37a;
-background:rgba(155,227,122,0.08);
-border:1px solid rgba(155,227,122,0.35);
-border-radius:20px;
-font-weight:500;
+}
+
+.status-dot{
+width:8px;
+height:8px;
+background:#9be37a;
+border-radius:50%;
+box-shadow:0 0 6px #9be37a;
 }
 .cursor-blink {
   display: inline-block;
@@ -246,18 +252,19 @@ font-weight:600;
 }
 
 .hero-skills{
-margin-top:18px;
+margin-top:25px;
+margin-bottom:10px;
 display:flex;
 gap:10px;
 flex-wrap:wrap;
 }
 
 .hero-skills span{
-background:#1a1a1a;
-border:1px solid var(--accent);
 padding:6px 12px;
+border:1px solid var(--accent);
 border-radius:6px;
 font-size:12px;
+background:rgba(255,255,255,0.03);
 }
 
 .hero-stats{
