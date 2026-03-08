@@ -206,10 +206,26 @@ body:hover .cursor-follower { opacity: 1; }
   height: 2rem;
   font-weight: 300;
 }
+.hero-status::before{
+content:"";
+display:inline-block;
+width:8px;
+height:8px;
+background:#9be37a;
+border-radius:50%;
+margin-right:6px;
+box-shadow:0 0 8px #9be37a;
+}
 .hero-status{
-margin-top:15px;
-color:#8de67c;
-font-size:14px;
+display:inline-block;
+margin-bottom:18px;
+padding:6px 12px;
+font-size:13px;
+color:#9be37a;
+background:rgba(155,227,122,0.08);
+border:1px solid rgba(155,227,122,0.35);
+border-radius:20px;
+font-weight:500;
 }
 .cursor-blink {
   display: inline-block;
