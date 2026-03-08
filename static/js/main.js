@@ -185,15 +185,15 @@ document.addEventListener("DOMContentLoaded", function () {
 // =============================
 // CHAT TOGGLE
 // =============================
-document.addEventListener("DOMContentLoaded", function () {
+const chatBtn = document.getElementById("chat-toggle");
+const chatBox = document.getElementById("chat-container");
 
-  const chatToggle = document.getElementById("chat-toggle");
-  const chatContainer = document.getElementById("chat-container");
+chatBtn.addEventListener("click", () => {
 
-  if (!chatToggle || !chatContainer) return;
-
-  chatToggle.addEventListener("click", function () {
-    chatContainer.classList.toggle("show");
-  });
+    if (chatBox.style.display === "none") {
+        chatBox.style.display = "block";
+    } else {
+        chatBox.style.display = "none";
+    }
 
 });

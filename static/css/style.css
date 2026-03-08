@@ -535,21 +535,24 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
   color: #0a0a0a;
 }
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
 }
+
 .project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-  transition: all 0.35s ease;
+    background: #111;
+    border: 1px solid #222;
+    padding: 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
+
 .project-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+    border-color: #c9a227;
+    transform: translateY(-6px);
 }
 .project-card.hidden { display: none; }
 .project-image { position: relative; aspect-ratio: 16/9; overflow: hidden; }
@@ -1100,18 +1103,17 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 =========================== */
 
 #chat-container{
-position:fixed;
-right:20px;
-bottom:110px;
-width:330px;
-max-width:90vw;
-background:var(--bg-card);
-color:white;
-padding:15px;
-z-index:999999;
-border-radius:12px;
-border:1px solid var(--border);
-box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    display:none;
+    position:fixed;
+    right:20px;
+    bottom:110px;
+    width:330px;
+    background:#111;
+    border-radius:10px;
+    padding:15px;
+    z-index:999;
+}
+
 #chat-container.show{
 transform:translateY(0);
 opacity:1;
@@ -1209,4 +1211,42 @@ text-transform:uppercase;
 a:hover{
 color:var(--accent);
 transition:color .3s ease;
+}
+
+.section-block {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.chat-toggle-btn{
+    position:fixed;
+    right:20px;
+    bottom:30px;
+    background:#00bcd4;
+    border:none;
+    color:white;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    font-size:22px;
+    cursor:pointer;
+}
+.highlight-container{
+    max-width:900px;
+    margin:auto;
+    text-align:left;
 }
