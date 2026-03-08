@@ -204,16 +204,7 @@ margin-top:20px;
 line-height:1.6;
 opacity:0.85;
 }
-.hero-status::before{
-content:"";
-display:inline-block;
-width:8px;
-height:8px;
-background:#9be37a;
-border-radius:50%;
-margin-right:6px;
-box-shadow:0 0 8px #9be37a;
-}.hero-status{
+.hero-status{
 margin-bottom:20px;
 display:inline-flex;
 align-items:center;
