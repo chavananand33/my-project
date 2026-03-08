@@ -1228,10 +1228,12 @@ transition:color .3s ease;
     font-weight: 600;
 }
 
-.section-subtitle {
-    text-align: center;
-    color: #aaa;
-    margin-bottom: 40px;
+.section-subtitle{
+color:#c9a54c;
+font-size:12px;
+letter-spacing:3px;
+text-align:center;
+margin-bottom:10px;
 }
 
 .chat-toggle-btn{
