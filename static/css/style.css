@@ -1389,33 +1389,61 @@ transform:translateY(0);
 }
 }
 
-/* Architecture Diagram */
+/* =========================
+   ARCHITECTURE SECTION
+========================= */
 
-.architecture-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 40px 0;
-  gap: 15px;
+.architecture-section{
+text-align:center;
 }
 
-.arch-box {
-  background: #1f2937;
-  color: white;
-  padding: 18px 25px;
-  border-radius: 10px;
-  font-weight: 500;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.architecture-flow{
+margin-top:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:12px;
 }
 
-.arch-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+/* same style as DISTINCTION badge */
+
+.arch-badge{
+padding:8px 18px;
+border:1px solid #c9a54c;
+color:#c9a54c;
+font-size:12px;
+letter-spacing:1px;
+border-radius:3px;
+background:rgba(201,165,76,0.08);
+transition:0.3s;
 }
 
-.arch-arrow {
-  font-size: 22px;
-  font-weight: bold;
-  color: #2563eb;
+.arch-badge:hover{
+background:#c9a54c;
+color:#000;
+}
+
+/* arrow */
+
+.arch-arrow{
+color:#c9a54c;
+font-size:18px;
+margin:0 5px;
+}
+.arch-badge{
+animation:fadeArch 0.6s ease forwards;
+opacity:0;
+}
+
+.arch-badge:nth-child(1){animation-delay:0.2s;}
+.arch-badge:nth-child(3){animation-delay:0.4s;}
+.arch-badge:nth-child(5){animation-delay:0.6s;}
+.arch-badge:nth-child(7){animation-delay:0.8s;}
+.arch-badge:nth-child(9){animation-delay:1s;}
+
+@keyframes fadeArch{
+to{
+opacity:1;
+}
 }
