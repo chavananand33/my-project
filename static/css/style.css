@@ -1082,7 +1082,7 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
 
 #chat-toggle{
 position:fixed;
-bottom:27px;
+bottom:25px;
 right:90px;
 background:#00adb5;
 color:white;
@@ -1240,7 +1240,7 @@ margin-bottom:10px;
     position:fixed;
     right:20px;
     bottom:30px;
-    background:#00bcd4;
+    background:#c9a54c;
     border:none;
     color:white;
     width:55px;
