@@ -206,6 +206,11 @@ body:hover .cursor-follower { opacity: 1; }
   height: 2rem;
   font-weight: 300;
 }
+.hero-status{
+margin-top:15px;
+color:#8de67c;
+font-size:14px;
+}
 .cursor-blink {
   display: inline-block;
   animation: blink 1s step-end infinite;
@@ -213,8 +218,47 @@ body:hover .cursor-follower { opacity: 1; }
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-buttons{
+margin-top:35px;
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+}
+.hero-buttons .btn{
+padding:12px 22px;
+font-weight:600;
+}
 
+.hero-skills{
+margin-top:18px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-skills span{
+background:#1a1a1a;
+border:1px solid var(--accent);
+padding:6px 12px;
+border-radius:6px;
+font-size:12px;
+}
+
+.hero-stats{
+margin-top:40px;
+display:flex;
+gap:40px;
+}
+
+.hero-stats h3{
+color:var(--accent);
+font-size:26px;
+}
+
+.hero-stats p{
+font-size:13px;
+opacity:0.7;
+}
 /* --- Visitor Box --- */
 .visitor-box{
 position:fixed;
@@ -301,9 +345,9 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
   filter: blur(80px);
   opacity: 0.08;
 }
+  background: var(--accent);
 .c1 {
   width: 600px; height: 600px;
-  background: var(--accent);
   top: -200px; right: -200px;
 }
 .c2 {
