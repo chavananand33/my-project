@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
 
       const typing = document.createElement("div");
+      typing.classList.add("typing");
       typing.innerHTML = "AI is typing...";
       chatBox.appendChild(typing);
 
@@ -185,15 +186,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // =============================
 // CHAT TOGGLE
 // =============================
-const chatBtn = document.getElementById("chat-toggle");
-const chatBox = document.getElementById("chat-container");
+document.addEventListener("DOMContentLoaded", function () {
 
-chatBtn.addEventListener("click", () => {
+  const chatBtn = document.getElementById("chat-toggle");
+  const chatContainer = document.getElementById("chat-container");
 
-    if (chatBox.style.display === "none") {
-        chatBox.style.display = "block";
+  if (!chatBtn || !chatContainer) return;
+
+  chatBtn.addEventListener("click", function () {
+
+    if (chatContainer.style.display === "block") {
+      chatContainer.style.display = "none";
     } else {
-        chatBox.style.display = "none";
+      chatContainer.style.display = "block";
     }
+
+  });
 
 });
