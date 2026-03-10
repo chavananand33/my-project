@@ -1145,7 +1145,7 @@ right:90px;
 background:var(--accent);   /* same color as theme */
 color:#000;
 width:55px;
-height:110px;
+height:55px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -1170,7 +1170,7 @@ background:var(--accent-2);
     position:fixed;
     right:20px;
     bottom:110px;
-    width:330px;
+    width:550px;
     background:#111;
     border-radius:10px;
     padding:15px;
