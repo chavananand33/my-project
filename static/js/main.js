@@ -76,7 +76,10 @@ function appendMessage(sender, message) {
   }
 
   chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
+  chatBox.scrollTo({
+        top: chatBox.scrollHeight,
+        behavior: 'smooth'
+    });
 }
 
 // =============================
@@ -122,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         typing.remove();
         // NOTE: Use data.response if that is what your Python backend returns
-        appendMessage("AI", data.response || data.reply); 
+        appendMessage("AI", data.response); 
       }, 600);
 
     } catch (error) {

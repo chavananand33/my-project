@@ -162,80 +162,132 @@ def admin_logout():
     flash("Logged out successfully.")
     return redirect(url_for("admin_login"))
 
+# The "Brain" of your chatbot populated with your resume data
+RESUME_DATA = {
+    "basics": {
+        "name": "Anand Chavan", # [cite: 1]
+        "location": "Pune, Maharashtra, India", # [cite: 2]
+        "summary": "Experienced in building AI-driven automation using Python, LLM APIs, and LangChain." # [cite: 4]
+    },
+    "experience": [
+        {
+            "company": "IBM India Pvt. Ltd.", # [cite: 24]
+            "role": "Support Engineer", # [cite: 24]
+            "impact": "Reduced incident resolution time by 25% through structured RCA." # 
+        },
+        {
+            "company": "JIO Platforms Limited", # [cite: 29]
+            "role": "Deputy Manager", # [cite: 29]
+            "impact": "Maintained 99.9% system uptime for telecom activation workflows." # 
+        }
+    ],
+    "skills": {
+        "ai_tools": ["ChatGPT", "Google Gemini", "Perplexity", "Claude"], # [cite: 9]
+        "infrastructure": ["Unix/Linux Server Operations", "Shell Scripting"], # [cite: 10, 11]
+        "databases": ["Oracle (11g/19c) " "&" "PostgreSQL"] # [cite: 12, 19, 28]
+    },
+    "contacts": {
+        "MSISDN": ["+91 9730343050"], # [cite: 9]
+        "EMAIL": ["chavananand33@gmail.com"]
+    },    
+    "education": "Computer Engineering degree from Pune University with Distinction and is committed to continuous learning, specifically in Python development and AI engineering." # [cite: 39]
+}
+
+
 def get_portfolio_response(message):
 
-    # Standardize input
     user_msg = message.lower().strip()
-
-    # Define Intents & Synonyms
-    # This makes the bot understand "What have you built?" as "projects"
-    intents = {
-        "experience": ["work", "history", "career", "background", "years", "telecom", "job", "company", "role"],
-        "skills": ["tech", "stack", "coding", "python", "flask", "know", "tools", "languages", "frameworks", "expert"],
-        "projects": ["built", "portfolio", "apps", "automation", "github", "developed", "made", "link"],
-        "education": ["degree", "college", "university", "study", "graduate", "bachelor", "learning", "upskill"],
-        "contact": ["email", "linkedin", "reach", "message", "talk", "connect", "hire", "phone"],
-        "resume": ["cv", "download", "pdf", "file", "document", "resume"]
-    }
-
-    # 1. Handle Greetings (Makes it feel human)
-    greetings = ["hi", "hello", "hey", "greetings", "good morning", "good afternoon"]
-    if any(greet in user_msg for greet in greetings):
-        return "Hi there! I'm Anand's virtual assistant. I can tell you about his 7.6+ years of experience, his tech stack, or his latest AI projects. What are you looking for?"
-
-    # 2. Check for Intent Match
-    found_intent = None
-    for intent, synonyms in intents.items():
-        if any(word in user_msg for word in synonyms):
-            found_intent = intent
-            break
-
-    # 3. Intelligent Responses (First-person feels more "portfolio-ready")
-    responses = {
-        "experience": ("Anand has over 7.6 years of experience in Telecom IT and Enterprise Applications. "
-                       "He's currently specializing in AI Agent Engineering. Check the 'Experience' section for details!"),
-        
-        "skills": ("The core toolkit includes Python, Flask, and SAP CRM. "
-                   "Lately, Anand has been deep-diving into AI Automation and Machine Learning frameworks."),
-        
-        "projects": ("From AI-powered chatbots to telecom automation tools, you can find "
-                     "Anand's work showcased in the 'Projects' section of this site."),
-        
-        "education": ("Anand holds a Bachelor's degree and is committed to continuous learning, "
-                      "specifically in Python development and AI engineering."),
-        
-        "contact": ("The best way to reach Anand is via LinkedIn or the contact form on this page. "
-                    "He's always open to discussing new opportunities!"),
-        
-        "resume": ("You can download the full CV by clicking the 'Download Resume' button "
-                   "in the top hero section of the website.")
-    }
-
-    # 4. Smart Fallback
-    # Instead of just saying "Error", we give them buttons/options
-    fallback = ("I'm not quite sure I follow, but I'd love to help! "
-                "Try asking about my **Experience**, **Skills**, **Projects**, or how to **Contact** me.")
     
-    return responses.get(found_intent, fallback)
+    # 1. Greeting Logic (Indented inside the function)
+    if any(word in user_msg for word in ["hi", "hello", "hey", "greetings", "personal"]):
+        # Access strings directly as we discussed to avoid letter-splitting
+        my_name = RESUME_DATA['basics']['name'] # [cite: 1]
+        my_location = RESUME_DATA['basics']['location'] # [cite: 2]
+        my_summary = RESUME_DATA['basics']['summary'] # [cite: 4]
+        return f"Hi, I'm {my_name}. I'm based in {my_location}. {my_summary}"
+    
+    # 3. Handle Experience/History
+    if any(word in user_msg for word in ["work", "history","experience", "career", "background", "years", "telecom", "job", "company", "role", "ibm", "jio"]):
+        ibm = RESUME_DATA['experience'][0]
+        jio = RESUME_DATA['experience'][1]
+        return (f"Anand has a strong background in Python,AI Automation Engineering, Python, Generative AI, Telecom IT and Enterprise System. "
+                f"At {ibm['company']}, he {ibm['impact']} "
+                f"Additionally, at {jio['company']}, he {jio['impact']}"
+                "He's currently specializing in Python & AI Engineering. Check the 'Experience' section for more details!")
+
+    # 4. Handle Education
+    if any(word in user_msg for word in ["education", "degree", "college", "university", "study", "graduate", "bachelor", "learning", "upskill"]):
+        return f"According to his resume, Anand holds a {RESUME_DATA['education']}"
+
+    # 5. Handle Skills & Tools
+    if any(word in user_msg for word in ["skill", "tool", "ai", "know", "tech","stack", "coding", "python", "flask", "tools", "languages", "frameworks", "expert"]):
+        tools = ", ".join(RESUME_DATA['skills']['ai_tools'])
+        infra = ", ".join(RESUME_DATA['skills']['infrastructure'])
+        database = ", ".join(RESUME_DATA['skills']['databases'])
+        return f"Anand is skilled in AI tools like {tools}, infra management like {infra} and database like {database}."
+
+    # 6. Handle Specific Projects
+    if any(word in user_msg for word in ["project", "build", "portfolio","apps", "automation", "github", "developed", "made", "link"]):
+        return """
+               He recently built an AI Portfolio Chatbot with Visitor Analytics using Python, LLM APIs, LangChain, PostgreSQL technologies.<br><br>
+               <a href="https://my-project-gu7s.onrender.com/" target="_blank">
+               <button style="background-color:#007BFF; color:white; padding:8px 18px; border:none; border-radius:6px; font-size:12px; cursor:pointer;">
+               View Project
+               </button>
+               </a>
+               """
+  # 7. Contacts
+    if any(word in user_msg for word in ["contact","email", "linkedin", "reach", "message", "talk", "connect", "hire", "phone"]):
+        # Access strings directly to keep them readable
+        my_msisdn = RESUME_DATA['contacts']['MSISDN'] # "+91-9730343050"
+        my_email = RESUME_DATA['contacts']['EMAIL']   # "chavananand33@gmail.com"
+        
+        return (f"The best way to reach me is via LinkedIn or the contact form on this website.\n"
+                f"I'm always open to discussing new opportunities!\n"
+                f"Below are my coordinates:\n"
+                f"MSISDN: {my_msisdn}\n"
+                f"Email: {my_email}")
+
+  # 8. Resume
+    if any(word in user_msg for word in ["cv", "download", "pdf", "file", "document", "resume"]):
+        return """
+               You can download the full CV by clicking the 'Download Resume' button on website or Click on below Download Resume button :<br><br>
+               <a href="{{ url_for('static', filename='resume.pdf') }} target="_blank">
+               <button style="background-color:#007BFF; color:white; padding:8px 18px; border:none; border-radius:6px; font-size:12px; cursor:pointer;">
+               Download Resume
+               </button>
+               </a>
+               """
+
+  # 2. Fallback Logic (Also indented inside the function)
+    return "I can tell you about Anand's work at IBM/Jio, his education, or his AI projects. What would you like to know?"
+    
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    data = request.get_json()
-    user_message = data.get("message", "").lower()
+    # 1. Get data from the request correctly
+    data = request.json
+    user_query = data.get('message', '')
+    
+    # 2. Get the bot's response using your resume-reading logic [cite: 17, 18]
+    # We use your resume data like your 7.6+ years of experience [cite: 4]
+    bot_reply = get_portfolio_response(user_query)
 
-    reply = get_portfolio_response(user_message)
+    # 3. Save to database BEFORE the return statement
+    try:
+        chat_record = ChatMessage(
+            user_message=user_query,
+            bot_reply=bot_reply
+        )
+        db.session.add(chat_record)
+        db.session.commit()
+    except Exception as e:
+        print(f"Database Error: {e}")
+        # We roll back if there's an error to keep the session clean
+        db.session.rollback()
 
-    # Save to database
-    chat_record = ChatMessage(
-        user_message=user_message,
-        bot_reply=reply
-    )
-
-    db.session.add(chat_record)
-    db.session.commit()
-
-    return jsonify({"reply": reply})
-
+    # 4. Final Return - Use ONE key that matches your JS (e.g., "response")
+    return jsonify({"response": bot_reply})
 
 @app.route("/")
 def home():
