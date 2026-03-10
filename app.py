@@ -247,18 +247,19 @@ def get_portfolio_response(message):
                 f"Below are my coordinates:\n"
                 f"MSISDN: {my_msisdn}\n"
                 f"Email: {my_email}")
-
-  # 8. Resume
-    if any(word in user_msg for word in ["cv", "download", "pdf", "file", "document", "resume"]):
-        return """
-               You can download the full CV by clicking the 'Download Resume' button on website or Click on below Download Resume button :<br><br>
-               <a href="{{ url_for('static', filename='resume.pdf') }} 
-               <button style="background-color:#007BFF; color:white; padding:8px 18px; border:none; border-radius:6px; font-size:12px; cursor:pointer;">
-               Download Resume
-               </button>
+# 8. Resume
+    user_msg_lower = user_msg.lower()
+    keywords = ["cv", "download", "pdf", "file", "document", "resume"]
+    
+    if any(word in user_msg_lower for word in keywords):
+        return f"""
+               You can download the full CV by clicking the 'Download Resume' button on the website or by clicking below:<br><br>
+               <a href="{ url_for('static', filename='resume.pdf') }" download>
+                   <button style="background-color:#007BFF; color:white; padding:8px 18px; border:none; border-radius:6px; font-size:12px; cursor:pointer;">
+                   Download Resume
+                   </button>
                </a>
                """
-
   # 2. Fallback Logic (Also indented inside the function)
     return "I can tell you about Anand's work at IBM/Jio, his education, or his AI projects. What would you like to know?"
     
