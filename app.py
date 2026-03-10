@@ -164,26 +164,59 @@ def admin_logout():
 
 def get_portfolio_response(message):
 
-    if "experience" in message:
-        return "Anand has 7.6+ years of experience in Telecom IT, Enterprise Applications, and AI-driven automation and currently upskilling in Python and ML Engineering. For detailed work history go to Experience Form on this website."
+    # Standardize input
+    user_msg = message.lower().strip()
 
-    elif "skills" in message:
-        return "Key skills include Python, Flask, SAP CRM, Telecom IT Systems, AI Automation, and Machine Learning fundamentals."
+    # Define Intents & Synonyms
+    # This makes the bot understand "What have you built?" as "projects"
+    intents = {
+        "experience": ["work", "history", "career", "background", "years", "telecom", "job", "company", "role"],
+        "skills": ["tech", "stack", "coding", "python", "flask", "know", "tools", "languages", "frameworks", "expert"],
+        "projects": ["built", "portfolio", "apps", "automation", "github", "developed", "made", "link"],
+        "education": ["degree", "college", "university", "study", "graduate", "bachelor", "learning", "upskill"],
+        "contact": ["email", "linkedin", "reach", "message", "talk", "connect", "hire", "phone"],
+        "resume": ["cv", "download", "pdf", "file", "document", "resume"]
+    }
 
-    elif "projects" in message:
-        return "Projects include AI-powered portfolio chatbot, automation tools, telecom application support systems, and ML learning initiatives."
+    # 1. Handle Greetings (Makes it feel human)
+    greetings = ["hi", "hello", "hey", "greetings", "good morning", "good afternoon"]
+    if any(greet in user_msg for greet in greetings):
+        return "Hi there! I'm Anand's virtual assistant. I can tell you about his 7.6+ years of experience, his tech stack, or his latest AI projects. What are you looking for?"
 
-    elif "education" in message:
-        return "Anand holds a Bachelor's degree and is continuously upskilling in AI, Machine Learning, and Python development."
+    # 2. Check for Intent Match
+    found_intent = None
+    for intent, synonyms in intents.items():
+        if any(word in user_msg for word in synonyms):
+            found_intent = intent
+            break
 
-    elif "contact" in message:
-        return "You can contact Anand via LinkedIn on https://linkedin.com/in/anand-chavan-7615b9118 or through the contact form on this website and Feel free to reach out."
+    # 3. Intelligent Responses (First-person feels more "portfolio-ready")
+    responses = {
+        "experience": ("Anand has over 7.6 years of experience in Telecom IT and Enterprise Applications. "
+                       "He's currently specializing in AI Agent Engineering. Check the 'Experience' section for details!"),
+        
+        "skills": ("The core toolkit includes Python, Flask, and SAP CRM. "
+                   "Lately, Anand has been deep-diving into AI Automation and Machine Learning frameworks."),
+        
+        "projects": ("From AI-powered chatbots to telecom automation tools, you can find "
+                     "Anand's work showcased in the 'Projects' section of this site."),
+        
+        "education": ("Anand holds a Bachelor's degree and is committed to continuous learning, "
+                      "specifically in Python development and AI engineering."),
+        
+        "contact": ("The best way to reach Anand is via LinkedIn or the contact form on this page. "
+                    "He's always open to discussing new opportunities!"),
+        
+        "resume": ("You can download the full CV by clicking the 'Download Resume' button "
+                   "in the top hero section of the website.")
+    }
 
-    elif "resume" in message:
-        return "You can download the resume using the Download Resume button in the hero section."
-
-    else:
-        return "Sorry!! I can only help you with information about Experience, Skills, Projects, Education, Contact or Resume. Please ask something related to these."
+    # 4. Smart Fallback
+    # Instead of just saying "Error", we give them buttons/options
+    fallback = ("I'm not quite sure I follow, but I'd love to help! "
+                "Try asking about my **Experience**, **Skills**, **Projects**, or how to **Contact** me.")
+    
+    return responses.get(found_intent, fallback)
 
 @app.route("/chat", methods=["POST"])
 def chat():

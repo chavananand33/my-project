@@ -82,8 +82,10 @@ function appendMessage(sender, message) {
 // =============================
 // CHATBOT
 // =============================
+// =============================
+// CHATBOT (UPDATED)
+// =============================
 document.addEventListener("DOMContentLoaded", function () {
-
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatBox = document.getElementById("chat-box");
@@ -96,36 +98,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const message = chatInput.value.trim();
     if (!message) return;
 
+    // 1. Immediately show User message
     appendMessage("You", message);
     chatInput.value = "";
+
+    // 2. Immediately show "Typing" indicator while waiting for the server
+    const typing = document.createElement("div");
+    typing.classList.add("chat-message", "bot", "typing"); // Added classes for styling
+    typing.innerHTML = "<strong>AI:</strong> <span class='dot-flashing'>...</span>";
+    chatBox.appendChild(typing);
+    chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
       const response = await fetch("/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: message })
       });
 
       const data = await response.json();
 
-      const typing = document.createElement("div");
-      typing.classList.add("typing");
-      typing.innerHTML = "AI is typing...";
-      chatBox.appendChild(typing);
-
-      chatBox.scrollTop = chatBox.scrollHeight;
-
+      // 3. Wait a minimum of 600ms so the typing isn't too "jittery"
       setTimeout(() => {
         typing.remove();
-        appendMessage("AI", data.reply);
-      }, 800);
+        // NOTE: Use data.response if that is what your Python backend returns
+        appendMessage("AI", data.response || data.reply); 
+      }, 600);
 
     } catch (error) {
-      appendMessage("AI", "Server error occurred.");
+      typing.remove();
+      appendMessage("AI", "I'm having a bit of trouble connecting to my brain. Try again?");
     }
   });
+
 
   // ENTER KEY SEND
   chatInput.addEventListener("keypress", function (e) {
