@@ -225,3 +225,22 @@ archBoxes.forEach((box, index) => {
     box.style.transform = "translateY(0)";
   }, index * 200);
 });
+
+// =============================
+// MOBILE NAVBAR TOGGLE
+// =============================
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (!navToggle || !navLinks) return;
+
+  navToggle.addEventListener("click", function () {
+
+    navLinks.classList.toggle("open");   // IMPORTANT
+    navToggle.classList.toggle("open");  // animate hamburger
+
+  });
+
+});
