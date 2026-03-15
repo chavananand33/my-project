@@ -725,8 +725,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <div id="chat-container">
-  <div id="chat-header"><img src="{{ url_for('static', filename='images/anand_chatbot_80.png') }}" class="bot-avatar">
-Ask About My Skills </div>
+ <div class="chat-header">
+  <img src="/static/images/anand_chatbot_80.png" class="chat-header-avatar">
+  <span>Ask About My Skills</span>
+</div>
 
   <div id="chat-box">
     <div class="chat-message">

@@ -72,15 +72,21 @@ function appendMessage(sender, message) {
   msg.classList.add("chat-message", "user");
 
   msg.innerHTML =
-  '<strong>You:</strong> ' + message;
+  '<div class="msg-content user-msg">' +
+  '<strong>You:</strong> ' + message +
+  '</div>';
 
 } else {
 
   msg.classList.add("chat-message", "bot");
 
   msg.innerHTML =
-  '<img src="/static/images/anand_chatbot_64.png" class="bot-avatar"> ' +
-  '<strong>AI:</strong> ' + message;
+  '<div class="bot-msg">' +
+  '<img src="/static/images/anand_chatbot_64.png" class="bot-avatar">' +
+  '<div class="msg-content">' +
+  '<strong>AI:</strong> ' + message +
+  '</div>' +
+  '</div>';
 
 }
   chatBox.appendChild(msg);
