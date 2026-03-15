@@ -781,7 +781,7 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
 #backToTop{
 position:fixed;
 bottom:30px;
-right:1000px;
+right:100px;
 width:55px;
 height:55px;
 background:var(--accent);
