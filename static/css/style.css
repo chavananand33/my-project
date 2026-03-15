@@ -1533,3 +1533,7 @@ opacity:1;
   20% { opacity: 1; }
   100% { opacity: .2; }
 }
+
+html{
+scroll-behavior:smooth;
+}

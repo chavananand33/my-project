@@ -244,3 +244,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+// =============================
+// CLOSE MOBILE MENU ON LINK CLICK
+// =============================
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const navMenu = document.getElementById("navLinks");
+  const navToggle = document.getElementById("navToggle");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("open");
+      navToggle.classList.remove("open");
+    });
+  });
+
+});
