@@ -277,7 +277,7 @@ opacity:0.7;
 .visitor-box{
 position:fixed;
 bottom:30px;
-left:20px;
+left:30px;
 background:#111;
 color:var(--accent);
 padding:8px 16px;
@@ -781,9 +781,9 @@ box-shadow:0 8px 20px rgba(0,0,0,0.4);
 #backToTop{
 position:fixed;
 bottom:30px;
-right:80px;
-width:45px;
-height:45px;
+right:1000px;
+width:55px;
+height:55px;
 background:var(--accent);
 color:#000;
 border:none;
