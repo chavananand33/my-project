@@ -67,14 +67,22 @@ function appendMessage(sender, message) {
 
   const msg = document.createElement("div");
 
-  if (sender === "You") {
-    msg.classList.add("chat-message", "user");
-    msg.innerHTML = "<strong>You:</strong> " + message;
-  } else {
-    msg.classList.add("chat-message", "bot");
-    msg.innerHTML = "<strong>AI:</strong> " + message;
-  }
+ if (sender === "You") {
 
+  msg.classList.add("chat-message", "user");
+
+  msg.innerHTML =
+  '<strong>You:</strong> ' + message;
+
+} else {
+
+  msg.classList.add("chat-message", "bot");
+
+  msg.innerHTML =
+  '<img src="/static/images/anand_chatbot_64.png" class="bot-avatar"> ' +
+  '<strong>AI:</strong> ' + message;
+
+}
   chatBox.appendChild(msg);
   chatBox.scrollTo({
         top: chatBox.scrollHeight,
@@ -262,3 +270,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+msg.innerHTML =
+'<img src="/static/images/anand_chatbot_64.png" class="bot-avatar"> <strong>AI:</strong> ' + message;
