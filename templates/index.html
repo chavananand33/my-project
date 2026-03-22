@@ -14,10 +14,14 @@
   <meta property="og:url" content="https://my-project-gu7s.onrender.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://my-project-gu7s.onrender.com/static/images/profile.jpg" />
+  <meta property="og:image" content="{{ url_for('static', filename='images/anand-chavan-logo.png', _external=True) }}" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/anand-chavan-logo.png') }}" />
+
+
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
@@ -47,12 +51,13 @@
 
   <!-- Navigation -->
 
-  <nav class="nav" id="nav">
-
-  <div class="nav-logo">
-    <!-- optional logo -->
-    <!-- <a href="#home">Home</a> -->
-  </div>
+ <nav class="navbar">
+  <div class="container">
+    <a href="/" class="logo-link">
+      <img src="{{ url_for('static', filename='images/anand-chavan-logo.png') }}" alt="Anand Chavan Logo" class="site-logo">
+    </a>
+    </div>
+</nav>
 
   <!-- MOBILE MENU BUTTON -->
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
