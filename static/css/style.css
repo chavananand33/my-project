@@ -1608,7 +1608,7 @@ margin-left:auto;
 }
 
 .site-logo {
-    height: 45px; /* Adjust based on your header height */
+    height: 48px; /* Adjust based on your header height */
     width: auto;
     display: block;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5)); /* Adds depth to the gold */
@@ -1622,6 +1622,7 @@ margin-left:auto;
 /* Ensure the link doesn't have an underline or weird spacing */
 .logo-link {
     text-decoration: none;
+    background: transparent !important;
     display: flex;
     align-items: center;
 }
